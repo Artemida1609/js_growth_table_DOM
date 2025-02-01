@@ -27,7 +27,7 @@ appendRow.addEventListener('click', () => {
 
 removeRow.addEventListener('click', () => {
   if (table.rows.length > 2) {
-    tbody.removeChild(tbody.children[0]);
+    tbody.removeChild(tbody.children[tbody.children.length - 1]);
   }
 });
 
@@ -44,11 +44,11 @@ appendColumn.addEventListener('click', () => {
 });
 
 removeColumn.addEventListener('click', () => {
-  const column = document.querySelector('tr');
+  const firstRow = document.querySelector('tr');
 
-  if (column.children.length > 2) {
+  if (firstRow.children.length > 2) {
     for (const row of table.rows) {
-      row.removeChild(row.children[0]);
+      row.removeChild(row.children[row.children.length - 1]);
     }
   }
 });
